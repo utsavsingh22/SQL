@@ -1,6 +1,7 @@
 # SQL Questions:-
 
 Q.1 <img width="639" alt="image" src="https://user-images.githubusercontent.com/60449352/233910871-ab60e13e-67db-4956-ad03-b25d8b653981.png">
+
 SOLUTION:-
 create table icc_world_cup
 (
@@ -27,6 +28,11 @@ GROUP BY TEAM_NAME
 ORDER BY Match_Played DESC;
 
 Q.2 [COMBINE TWO TABLES LC QUESTION](https://leetcode.com/problems/combine-two-tables/)
+
 SOLUTION:- SELECT P.firstName,P.lastName,A.city,A.state
 FROM PERSON P LEFT JOIN ADDRESS A ON P.personId=A.personId
+
+Q.3 [Employees-earning-more-than-their-managers](https://leetcode.com/problems/employees-earning-more-than-their-managers/)
+
+Solution:-select E1.name as Employee from Employee as E1 JOIN Employee as E2 where E1.ManagerId = E2.Id and E1.salary > E2.salary
 
