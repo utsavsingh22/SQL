@@ -1,1 +1,32 @@
-# SQL
+# SQL Questions:-
+
+Q.1 <img width="639" alt="image" src="https://user-images.githubusercontent.com/60449352/233910871-ab60e13e-67db-4956-ad03-b25d8b653981.png">
+SOLUTION:-
+create table icc_world_cup
+(
+Team_1 Varchar(20),
+Team_2 Varchar(20),
+Winner Varchar(20)
+);
+INSERT INTO icc_world_cup values('India','SL','India');
+INSERT INTO icc_world_cup values('SL','Aus','Aus');
+INSERT INTO icc_world_cup values('SA','Eng','Eng');
+INSERT INTO icc_world_cup values('Eng','NZ','NZ');
+INSERT INTO icc_world_cup values('Aus','India','India');
+
+select * from icc_world_cup;
+
+SELECT TEAM_NAME,COUNT(1) AS Match_Played,SUM(WIN_FLAG) AS No_OF_Wins,COUNT(1)-SUM(WIN_FLAG)
+AS No_Of_Loses FROM
+(
+SELECT Team_1 AS TEAM_NAME,CASE WHEN Team_1=Winner THEN 1 ELSE 0 END AS WIN_FLAG FROM icc_world_cup 
+UNION ALL
+SELECT Team_1 AS TEAM_NAME,CASE WHEN Team_2=Winner THEN 1 ELSE 0 END AS WIN_FLAG FROM icc_world_cup
+) A
+GROUP BY TEAM_NAME
+ORDER BY Match_Played DESC;
+
+Q.2 [COMBINE TWO TABLES LC QUESTION](https://leetcode.com/problems/combine-two-tables/)
+SOLUTION:- SELECT P.firstName,P.lastName,A.city,A.state
+FROM PERSON P LEFT JOIN ADDRESS A ON P.personId=A.personId
+
