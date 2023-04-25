@@ -48,4 +48,4 @@ ALTERNATE SOLUTION:- SELECT NAME AS CUSTOMERS FROM Customers WHERE ID NOT IN (SE
 
 Q.6 [Delete-duplicate-emails](https://leetcode.com/problems/delete-duplicate-emails/)
 
-Solution:-
+Solution:- delete a from person a inner join person b on a.email = b.email where a.id > b.id
