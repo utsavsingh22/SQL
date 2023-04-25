@@ -36,3 +36,16 @@ Q.3 [Employees-earning-more-than-their-managers](https://leetcode.com/problems/e
 
 Solution:-select E1.name as Employee from Employee as E1 JOIN Employee as E2 where E1.ManagerId = E2.Id and E1.salary > E2.salary
 
+Q.4 [Duplicate Emails](https://leetcode.com/problems/duplicate-emails/)
+
+Solution:- SELECT Email FROM PERSON GROUP BY EMAIL HAVING COUNT(*)>1;
+
+Q.5 [Customers-who-never-order](https://leetcode.com/problems/customers-who-never-order/)
+
+Solution:- SELECT C.NAME AS Customers FROM Customers C LEFT JOIN Orders O
+ON C.ID=O.customerId WHERE o.customerId is NULL;
+ALTERNATE SOLUTION:- SELECT NAME AS CUSTOMERS FROM Customers WHERE ID NOT IN (SELECT customerId FROM ORDERS);
+
+Q.6 [Delete-duplicate-emails](https://leetcode.com/problems/delete-duplicate-emails/)
+
+Solution:-
