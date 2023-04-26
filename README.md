@@ -82,11 +82,11 @@ sum(case when c.order_date!=n.new_order_date then 1 else 0 end) as repeat_custom
 from customer_orders c join new n on c.customer_id=n.customer_id
 group by c.order_date;
 
-Q.8 [Game-play-analysis](https://leetcode.com/problems/game-play-analysis-i/)
+Q.9 [Game-play-analysis](https://leetcode.com/problems/game-play-analysis-i/)
 
 Solution:- SELECT player_id,min(event_date) as first_login from Activity group by player_id
 
-Q.9 [Employee-bonus](https://leetcode.com/problems/employee-bonus/)
+Q.10 [Employee-bonus](https://leetcode.com/problems/employee-bonus/)
 
 Solution:-SELECT E.name,B.bonus FROM Employee E LEFT JOIN Bonus B
 ON E.empId=B.empId
