@@ -49,3 +49,37 @@ ALTERNATE SOLUTION:- SELECT NAME AS CUSTOMERS FROM Customers WHERE ID NOT IN (SE
 Q.6 [Delete-duplicate-emails](https://leetcode.com/problems/delete-duplicate-emails/)
 
 Solution:- delete a from person a inner join person b on a.email = b.email where a.id > b.id
+
+Q.7 [Rising-temperature](https://leetcode.com/problems/rising-temperature/)
+
+Solution:- SELECT a.id as id 
+FROM Weather a
+JOIN Weather b ON DATEDIFF(a.RecordDate,b.Recorddate)=1
+WHERE a.Temperature > b.Temperature;
+
+Q.8 Find new and Repeat customers?
+
+Solution:- create table customer_orders (
+order_id integer,
+customer_id integer,
+order_date date,
+order_amount integer
+);
+
+insert into customer_orders values(1,100,cast('2022-01-01' as date),2000),(2,200,cast('2022-01-01' as date),2500),(3,300,cast('2022-01-01' as date),2100)
+,(4,100,cast('2022-01-02' as date),2000),(5,400,cast('2022-01-02' as date),2200),(6,500,cast('2022-01-02' as date),2700)
+,(7,100,cast('2022-01-03' as date),3000),(8,400,cast('2022-01-03' as date),1000),(9,600,cast('2022-01-03' as date),3000)
+;
+
+select * from customer_orders;
+
+with new as (
+SELECT customer_id,min(order_date) as new_order_date from customer_orders 
+group by customer_id)
+Select c.order_date,sum(c.order_amount),
+sum(case when c.order_date=n.new_order_date then 1 else 0 end) as new_customers,
+sum(case when c.order_date!=n.new_order_date then 1 else 0 end) as repeat_customers
+from customer_orders c join new n on c.customer_id=n.customer_id
+group by c.order_date;
+
+
