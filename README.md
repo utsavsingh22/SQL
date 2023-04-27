@@ -91,3 +91,50 @@ Q.10 [Employee-bonus](https://leetcode.com/problems/employee-bonus/)
 Solution:-SELECT E.name,B.bonus FROM Employee E LEFT JOIN Bonus B
 ON E.empId=B.empId
 WHERE B.bonus<1000 OR B.bonus is null;
+
+Q.11 Number of Floor Visit
+
+Solution:-
+create table entries ( 
+name varchar(20),
+address varchar(20),
+email varchar(20),
+floor int,
+resources varchar(10));
+
+insert into entries 
+values ('A','Bangalore','A@gmail.com',1,'CPU'),('A','Bangalore','A1@gmail.com',1,'CPU'),('A','Bangalore','A2@gmail.com',2,'DESKTOP')
+,('B','Bangalore','B@gmail.com',2,'DESKTOP'),('B','Bangalore','B1@gmail.com',2,'DESKTOP'),('B','Bangalore','B2@gmail.com',1,'MONITOR')
+
+SELECT * FROM entries;
+
+
+
+with ct1 as(select name, max(Total_visits) as Total_visit,
+STRING_AGG(resources,',') as resources_used from 
+(select distinct name, resources, count(*) over(partition by name) Total_visits from entries) d
+group by name)
+,ct2 as (
+select name, floor, row_number() over(partition by name order by c desc) as rn from
+(select name, floor, count(floor) over(partition by name,resources) as c from entries) a
+)
+select c1.name,c1.Total_visit, c2.floor as m_v_f, c1.resources_used
+from ct1 c1 join ct2 c2 on c1.name=c2.name where c2.rn=1
+
+Q.12 [Find-customer-referee](https://leetcode.com/problems/find-customer-referee/)
+
+Solution:-SELECT name FROM Customer
+WHERE COALESCE(referee_id,'')!=2;
+
+Q.13 [Customer-placing-the-largest-number-of-orders](https://leetcode.com/problems/customer-placing-the-largest-number-of-orders/)
+
+Solution:-SELECT customer_number FROM 
+(SELECT COUNT(order_number),customer_number FROM Orders GROUP BY customer_number
+ORDER BY COUNT(order_number) DESC)
+Orders LIMIT 1;
+
+ALITER:-SELECT customer_number 
+FROM Orders
+GROUP BY customer_number
+ORDER BY COUNT(order_number) DESC
+LIMIT 1;
