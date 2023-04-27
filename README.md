@@ -138,3 +138,8 @@ FROM Orders
 GROUP BY customer_number
 ORDER BY COUNT(order_number) DESC
 LIMIT 1;
+
+Q.14 [Big-countries](https://leetcode.com/problems/big-countries/description/)
+
+Solution:-SELECT name, population, area from world
+where area>=3000000 or population>=25000000
