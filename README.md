@@ -143,3 +143,15 @@ Q.14 [Big-countries](https://leetcode.com/problems/big-countries/description/)
 
 Solution:-SELECT name, population, area from world
 where area>=3000000 or population>=25000000
+
+Q.15 [Classes-more-than-5-students](https://leetcode.com/problems/classes-more-than-5-students/)
+
+Solution:-select class
+from Courses
+group by class
+having count(student) >= 5 
+
+Q.16 [Sales-person](https://leetcode.com/problems/sales-person/)
+
+Solution:- SELECT S.name FROM SalesPerson S where S.sales_id not in (SELECT O.sales_id from Orders O inner join Company C ON O.com_id=C.com_id
+WHERE C.name='RED')
