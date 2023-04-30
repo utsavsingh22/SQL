@@ -164,4 +164,8 @@ from Triangle;
 
 Q.18 [Biggest-single-number](https://leetcode.com/problems/biggest-single-number/)
 
-Solution:-
+Solution:- SELECT max(num) as num FROM MyNumbers
+where num in (select num from MyNumbers
+GROUP BY num
+HAVING count(*)=1 
+)
