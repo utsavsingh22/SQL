@@ -155,3 +155,13 @@ Q.16 [Sales-person](https://leetcode.com/problems/sales-person/)
 
 Solution:- SELECT S.name FROM SalesPerson S where S.sales_id not in (SELECT O.sales_id from Orders O inner join Company C ON O.com_id=C.com_id
 WHERE C.name='RED')
+
+Q.17 [Triangle-judgement](https://leetcode.com/problems/triangle-judgement/)
+
+Solution:- SELECT x,y,z, CASE WHEN x+y>z and y+z>x and z+x>y THEN 'Yes'
+ELSE 'No' END AS triangle
+from Triangle;
+
+Q.18 [Biggest-single-number](https://leetcode.com/problems/biggest-single-number/)
+
+Solution:-
