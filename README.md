@@ -169,3 +169,11 @@ where num in (select num from MyNumbers
 GROUP BY num
 HAVING count(*)=1 
 )
+
+Q.19 [Not-boring-movies](https://leetcode.com/problems/not-boring-movies/)
+
+Solution:- SELECT * FROM cinema WHERE (id % 2 = 1) AND (description != "boring") ORDER BY rating DESC;
+
+Q.20 [Swap-salary](https://leetcode.com/problems/swap-salary/)
+
+Solution:- 
