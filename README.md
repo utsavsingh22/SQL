@@ -176,4 +176,9 @@ Solution:- SELECT * FROM cinema WHERE (id % 2 = 1) AND (description != "boring")
 
 Q.20 [Swap-salary](https://leetcode.com/problems/swap-salary/)
 
-Solution:- 
+Solution:- update Salary
+set sex=
+case when sex='m' then 'f' 
+when sex='f' then 'm'
+end 
+
