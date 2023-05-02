@@ -182,3 +182,14 @@ case when sex='m' then 'f'
 when sex='f' then 'm'
 end 
 
+Q.21 [Actors-and-directors-who-cooperated-at-least-three-times](https://leetcode.com/problems/actors-and-directors-who-cooperated-at-least-three-times/)
+
+Solution:- Select actor_id,director_id from ActorDirector 
+group by actor_id,director_id
+having count(*)>=3
+
+Q.22 [Product-sales-analysis-i/description](https://leetcode.com/problems/product-sales-analysis-i/description/)
+
+Solution:- Select P.product_name,S.year,S.price from Sales s
+join Product P 
+ON S.product_id=P.product_id
