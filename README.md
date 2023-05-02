@@ -188,7 +188,7 @@ Solution:- Select actor_id,director_id from ActorDirector
 group by actor_id,director_id
 having count(*)>=3
 
-Q.22 [Product-sales-analysis-i/description](https://leetcode.com/problems/product-sales-analysis-i/description/)
+Q.22 [Product-sales-analysis-i](https://leetcode.com/problems/product-sales-analysis-i/description/)
 
 Solution:- Select P.product_name,S.year,S.price from Sales s
 join Product P 
