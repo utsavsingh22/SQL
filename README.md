@@ -193,3 +193,10 @@ Q.22 [Product-sales-analysis-i](https://leetcode.com/problems/product-sales-anal
 Solution:- Select P.product_name,S.year,S.price from Sales s
 join Product P 
 ON S.product_id=P.product_id
+
+Q.23 [Project-employees](https://leetcode.com/problems/project-employees-i/)
+
+Solution:- Select p.project_id,round(avg(1.00*e.experience_years),2) as average_years
+from Project p  join Employee e
+on p.employee_id=e.employee_id
+group by p.project_id
