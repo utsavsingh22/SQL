@@ -216,3 +216,9 @@ from Activity
 where datediff('2019-07-27',activity_date)<30
 and activity_date<'2019-07-27'
 group by activity_date
+
+Q.26 [Article-views](https://leetcode.com/problems/article-views-i/)
+
+Solution:- SELECT distinct author_id AS id from Views
+where author_id=viewer_id
+order by id
