@@ -200,3 +200,19 @@ Solution:- Select p.project_id,round(avg(1.00*e.experience_years),2) as average_
 from Project p  join Employee e
 on p.employee_id=e.employee_id
 group by p.project_id
+
+Q.24 [Sales Analysis](https://leetcode.com/problems/sales-analysis-iii/)
+
+Solution:- # Write your MySQL query statement below
+SELECT P.product_id,P.product_name FROM Product P join Sales S
+ON P.product_id=S.product_id
+group by P.product_id
+having min(S.sale_date)>='2019-01-01' and max(S.sale_date)<='2019-03-31'
+
+Q.25 [User-activity-for-the-past-30-days](https://leetcode.com/problems/user-activity-for-the-past-30-days-i/description/)
+
+Solution:- select activity_date as day,count(distinct user_id) as active_users
+from Activity 
+where datediff('2019-07-27',activity_date)<30
+and activity_date<'2019-07-27'
+group by activity_date
