@@ -240,3 +240,10 @@ MAX(CASE WHEN month='Nov' THEN revenue ELSE NULL END) AS Nov_Revenue,
 MAX(CASE WHEN month='Dec' THEN revenue ELSE NULL END) AS Dec_Revenue
 FROM Department
 GROUP BY id
+
+Q.28 [Queries-quality-and-percentage](https://leetcode.com/problems/queries-quality-and-percentage/)
+
+Solution:-Select query_name,Round(Avg(rating/position),2) as quality,
+Round(100 * max(case when rating < 3 then 1 else 0 end)/count(*),2) as poor_query_percentage
+from Queries
+group by query_name
