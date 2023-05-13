@@ -247,3 +247,12 @@ Solution:-Select query_name,Round(Avg(rating/position),2) as quality,
 Round(100 * max(case when rating < 3 then 1 else 0 end)/count(*),2) as poor_query_percentage
 from Queries
 group by query_name
+
+Q.29 [Students & Examinations](https://leetcode.com/problems/students-and-examinations/)
+
+Solution:-SELECT st.student_id,st.student_name,s.subject_name,count(e.subject_name) as attended_exams
+from Students st cross join Subjects s left join
+Examinations e on st.student_id=e.student_id
+and s.subject_name=e.subject_name 
+group by st.student_id,s.subject_name,st.student_name
+order by st.student_id,s.subject_name
