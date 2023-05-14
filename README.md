@@ -256,3 +256,12 @@ Examinations e on st.student_id=e.student_id
 and s.subject_name=e.subject_name 
 group by st.student_id,s.subject_name,st.student_name
 order by st.student_id,s.subject_name
+
+Q.30 [List-the-products-ordered-in-a-period](https://leetcode.com/problems/list-the-products-ordered-in-a-period/)
+
+Solution:-Select p.product_name,sum(o.unit) as unit from
+Products p join Orders o
+on p.product_id=o.product_id
+where MONTH(order_date)=2 and YEAR(order_date)=2020
+group by p.product_name
+Having unit>=100
