@@ -265,3 +265,8 @@ on p.product_id=o.product_id
 where MONTH(order_date)=2 and YEAR(order_date)=2020
 group by p.product_name
 Having unit>=100
+
+Q.31 [Replace-employee-id-with-the-unique-identifier](https://leetcode.com/problems/replace-employee-id-with-the-unique-identifier/)
+
+Solution:-Select eu.unique_id,e.name from Employees e left join EmployeeUNI eu
+on e.id=eu.id
