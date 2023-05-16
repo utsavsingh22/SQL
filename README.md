@@ -270,3 +270,11 @@ Q.31 [Replace-employee-id-with-the-unique-identifier](https://leetcode.com/probl
 
 Solution:-Select eu.unique_id,e.name from Employees e left join EmployeeUNI eu
 on e.id=eu.id
+
+Q.32 [Top_Travellers](https://leetcode.com/problems/top-travellers/)
+
+Solution:-select name,sum(case when r.distance is null then 0 else r.distance end)as travelled_distance
+from Users u left join Rides r on u.id=r.user_id
+group by name
+order by travelled_distance desc,name asc
+ALITER:-coalesce(sum(r.distance),0) as travelled_distance
