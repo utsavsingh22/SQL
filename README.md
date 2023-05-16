@@ -278,3 +278,8 @@ from Users u left join Rides r on u.id=r.user_id
 group by name
 order by travelled_distance desc,name asc
 ALITER:-coalesce(sum(r.distance),0) as travelled_distance
+
+Q.33 [Find-users-with-valid-e-mails](https://leetcode.com/problems/find-users-with-valid-e-mails/)
+
+Solution:-SELECT * FROM Users 
+WHERE mail regexp '^[a-zA-Z][a-zA-Z0-9-._]*@leetcode[.]com'
